@@ -11,28 +11,28 @@
 
 ### 使用Github Action打卡
 
-1. 注册一个github账户。
+1. 注册一个`github`账户。
 
-2. 点击右上角的Starred按钮，收藏本程序
+2. 点击右上角的`Starred`按钮，收藏本程序
 
 ![image](https://user-images.githubusercontent.com/51276909/156751454-4c7b1d17-bca7-4084-8d0e-fdbf3ea590c8.png)
 
-3. 再点击右上角的Fork按钮
+3. 再点击右上角的`Fork`按钮
 
 ![image](https://user-images.githubusercontent.com/51276909/156751558-243c0417-db3e-4a46-a5a2-2c10afa36a7f.png)
 
 这会克隆一个你自己的打卡程序，并跳转到你自己的仓库。
 
-3. 点击Settings:
+3. 点击`Settings`:
 
 ![image](https://user-images.githubusercontent.com/51276909/156022067-de25036b-99e7-4011-85e2-f66510a4301c.png)
 
-4. 选择Secret下的action
+4. 选择`Secret`下的`action`
 
 ![image](https://user-images.githubusercontent.com/51276909/156022503-4eb5f6ff-ddc3-4af4-bfa7-8fc8e0a18a27.png)
 
 
-5. 点击New repository secret，添加你的个人登录信息。
+5. 点击`New repository secret`，添加你的个人登录信息。
 
 ![image](https://user-images.githubusercontent.com/51276909/156101931-ea607179-8bec-49ed-871b-f04c965e2b86.png)
 
@@ -41,21 +41,26 @@
 
 ![image](https://user-images.githubusercontent.com/51276909/156102027-3766e951-8d9a-4b0d-bfc2-df1321d6ce59.png)
 
+注意，`Name`一定要填入`SETTING`
 
-value的内容可以从这里复制，记得把配置改成你自己的学号，密码，以及邮箱地址和密码。
+`Value`的内容可以从这里复制，记得把配置改成你自己的学号，密码，以及邮箱地址和密码。reporter_name是邮件发送人的名字，可改可不改。
 
 ```jsonc
 {
     "xmu": {
         "ID": "21620192203361",
-        "password": "123456" 
+        "password": "123456"
     },
     "mail": {
         "address": "114514114514@qq.com",
+        "reporter_name": "HAL-9000",
         "smtp_password": "123456"
     },
 }
 ```
+注意，`smtp_password`是你的邮箱授权码。
+我们推荐使用QQ邮箱，因为它会在微信/QQ中弹出通知，符合国情。当然你也可以使用你自己喜欢的邮箱。这是[QQ邮箱设置SMTP服务的教程](https://jingyan.baidu.com/article/6079ad0eb14aaa28fe86db5a.html) 。注意，你获取的SMTP授权码就是需要填入的密码。
+
 
 如果你不需要程序发送邮件提醒你打卡结果，则可以删掉邮箱有关的配置，如下所示：
 
@@ -68,17 +73,13 @@ value的内容可以从这里复制，记得把配置改成你自己的学号，
 }
 ```
 
-
-我们推荐使用QQ邮箱，因为它会在微信/QQ中弹出通知，符合国情。当然你也可以使用你自己喜欢的邮箱。这是[QQ邮箱设置SMTP服务的教程](https://www.jspxcms.com/documentation/351.html) 。注意，你获取的SMTP授权码就是需要填入的密码。
-
-
-7. 点击Add secret保存配置。
+7. 点击`Add secret`保存配置。
 
 ![image](https://user-images.githubusercontent.com/51276909/156102191-e5b24a05-7935-46bf-bc75-b09f3e82d059.png)
 
 8. 激活定时打卡
 
-回到主页，点击左上角的Actions：
+回到主页，点击左上角的`Actions`：
 
 ![image](https://user-images.githubusercontent.com/51276909/156023756-2b7da67f-35f2-4050-9a79-87991e8b689d.png)
 
@@ -86,28 +87,40 @@ value的内容可以从这里复制，记得把配置改成你自己的学号，
 
 ![image](https://user-images.githubusercontent.com/51276909/156103209-1bdb465e-3de6-4ff7-8c11-ecf182cf110a.png)
 
-点击Enbale workflow激活定时打卡功能
+点击`Enbale workflow`激活定时打卡功能
 
 ![image](https://user-images.githubusercontent.com/51276909/156103315-13d053d0-02e6-4929-a215-9db9ed41ee57.png)
 
 现在，程序会自动在每天上午六点钟到八点钟，随机选择一个时间开始打卡。
-      
 
 9. 除了定时打卡，你也可以用这个网站手动打卡。我们建议您现在手动打一次卡，验证一下配置是否正确。
 
 ![image](https://user-images.githubusercontent.com/51276909/156913850-d598b8b0-1023-4223-b9f7-e7964d069eb0.png)
 
-点击绿色的Run workflow按钮来触发手动打卡。
+点击绿色的`Run workflow`按钮来触发手动打卡。
 
 刷新页面，可以看到打卡正在进行中：
 
 ![image](https://user-images.githubusercontent.com/51276909/156023994-204c03ed-4067-45b5-a4a1-b35409d0bba1.png)
 
-变为绿色则打卡完成。
+变为绿色则程序运行完毕（运行完毕不代表运行成功）。
 
-点击可查看详情：
+点击查看详情，可确认是否打卡成功：
 
-![image](https://user-images.githubusercontent.com/51276909/156100629-951f7ee5-db38-48e6-bfa6-bfd6100062cc.png)
+![image](https://user-images.githubusercontent.com/51276909/157470704-88285faf-e80c-493a-9492-e3bbd1d6f82e.png)
+
+![image](https://user-images.githubusercontent.com/51276909/157470762-14e2897e-82f3-4172-a3ce-af6fa113a729.png)
+
+只有程序告诉你：`report seccueed`!才算是打卡成功！
+
+如果打卡失败，并显示：
+
+![image](https://user-images.githubusercontent.com/51276909/157470945-ac0e64f7-edc2-4851-a49f-80fc476fb708.png)
+
+则说明你的配置有误。请更新你的学号和密码。
+
+![image](https://user-images.githubusercontent.com/51276909/157471204-10790e82-e539-4a33-9efa-84b833e302d1.png)
+
 
 10. 打卡成功后，如果你有设置邮件地址，那么程序会向你的邮箱发送邮件。
           
@@ -121,7 +134,7 @@ value的内容可以从这里复制，记得把配置改成你自己的学号，
 
 ![image](https://user-images.githubusercontent.com/51276909/156103631-71d74364-5fa2-4207-b085-2de299ac680a.png)
 
-这里的 0 22 * * * 代表在UTC+0的时区的22点打卡。由于中国是UTC+8时区，因此默认是早上六点开始执行任务。
+这里的 `0 22 * * *`代表在UTC+0的时区的22点打卡。由于中国是UTC+8时区，因此默认是早上六点开始执行任务。
 
 12. 如果要修改随机打卡的时间段，请打开文件： [bin/github_action/sleep.sh](bin/github_action/sleep.sh)
 
